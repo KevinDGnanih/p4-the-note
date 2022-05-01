@@ -1,0 +1,1 @@
+web: gunicorn django_the_note.wsgi

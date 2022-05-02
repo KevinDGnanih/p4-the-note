@@ -28,5 +28,23 @@ class Post(models.Model):
         return self.title
 
     def number_of_likes(self):
-        """ Counts the number of likes """
+        """ Returns the total number of likes on a post """
         return self.likes.count()
+
+
+class Comment(model.Models):
+    """ Class for the comment """
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        """ Adding helpers for a better readability and user experience"""
+        ordering = ['created_on']
+
+    def __str__(self):
+        """ Display the comment and the author """
+        return f"Comment {self.body} by {self.name}"

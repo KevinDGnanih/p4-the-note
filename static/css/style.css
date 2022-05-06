@@ -9,6 +9,10 @@ ul {
 
 /* Navigation bar */
 
+.f-left {
+    float: left;
+}
+
 .f-right {
     float: right;
 }
@@ -19,11 +23,12 @@ ul {
 }
 
 .header-area .header-top .header-info-left .form-box {
-    position: relative;
+    
 }
 
-.header-area .hearder-top .header-info-left .form-box .search-icon {
+.header-area .header-top .header-info-left .form-box .search-icon {
     position: absolute;
+    display: inline-block;
     top: 6px;
     right: 1px;
     padding: 7px 23px;

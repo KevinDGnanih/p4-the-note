@@ -1,0 +1,50 @@
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Navigation bar */
+
+.f-right {
+    float: right;
+}
+
+/* Header Top */
+.header-area .header-top {
+    padding: 29px 170px;
+}
+
+.header-area .header-top .header-info-left .form-box {
+    position: relative;
+}
+
+.header-area .hearder-top .header-info-left .form-box .search-icon {
+    position: absolute;
+    top: 6px;
+    right: 1px;
+    padding: 7px 23px;
+    cursor: pointer;
+    background: white;
+}
+
+.header-area .header-top .header-info-left .form-box .search-icon i {
+    color: #140C40;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Header Bottom */
+
+.header-bottom {
+    border-top: 1px solid #E6E5EA;
+}
+
+.header-bottom .main-menu ul li {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}

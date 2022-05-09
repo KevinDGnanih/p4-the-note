@@ -7,6 +7,10 @@ ul {
     padding: 0px;
 }
 
+a {
+    padding: 10px 19px;
+}
+
 /* Navigation bar */
 
 .f-left {
@@ -52,4 +56,29 @@ ul {
     display: inline-block;
     position: relative;
     z-index: 1;
+}
+
+
+/* Latest Posts area */
+
+.section-tittle {
+    position: relative;
+}
+
+.section-tittle::before {
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 77%;
+    background: #C7D2D8;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Footer */
+
+.footer-bottom-area .footer-border {
+    border-top: 1px solid #424242;
+    padding: 18px 0px 4px;
 }

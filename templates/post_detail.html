@@ -1,0 +1,104 @@
+{% extends 'base.html' %} {% block content %}
+
+<main>
+    <!-- Breadcrumb Start -->
+    <div class="page-notification">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb justify-content-center">
+
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Post Details Start -->
+    <div class="post-details pb-80">
+        <div class="container">
+            <!-- Post's Image Start -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="details-img mb-40">
+                        {% if "placeholder" in post.featured_image.url %}
+                        <img class="img-fluid" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                            width="100%">
+                        {% else %}
+                        <img class="img-fluid" src=" {{ post.featured_image.url }}" width="100%">
+                        {% endif %}>
+                        IMAGE GOES HERE
+                    </div>
+                </div>
+            </div>
+            <!-- Post's Image End -->
+            <!-- Post's text Start -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="about-details-cap">
+                        <h2 class="post-title">{{ post.title }}</h2>
+                        <p class="post-subtitle">{{ post.author }} | {{ post.created_on }} </p>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    Text paragraph goes here
+                    <div class="about-details-cap">
+                        <p class="mb-30">{{ post.content | safe }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-1">
+                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+                    </div>
+                    <div class="col-1">
+                        {% with comments.count as total_comments %}
+                        <strong class="text-secondary"><i class="fae fa-comments"></i> {{ total_comments }} </strong>
+                        {% endwith %}
+                    </div>
+                </div>
+
+
+                <!-- Social -->
+                <div class="social-icon pt-20 pb-20">
+                    Icons goes here
+                </div>
+            </div>
+            <!-- Post's Text End -->
+            <!-- Comments Section Start -->
+            <div class="comments-area pb-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="small-tittle mb-30">
+                                <h2>Comments:</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-11">
+                            Comments goes here
+                            {% for comment in comments %}
+                            <div class="comments" style="padding: 10px;">
+                                <p class="font-weight-bold">
+                                    {{ comment.name }}
+                                    <span class="text-muted font-weight-normal">
+                                        {{ comment.created_on }}
+                                    </span> wrote:
+                                </p>
+                                {{ comment.body | linebreaks }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Comments Section End -->
+        </div>
+    </div>
+
+
+</main>
+
+{% endblock content %}

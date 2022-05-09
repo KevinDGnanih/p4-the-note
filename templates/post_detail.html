@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ol class="breadcrumb justify-content-center">
-
+                        Breadcrumb info goes here
                     </ol>
                 </div>
             </div>
@@ -27,8 +27,7 @@
                             width="100%">
                         {% else %}
                         <img class="img-fluid" src=" {{ post.featured_image.url }}" width="100%">
-                        {% endif %}>
-                        IMAGE GOES HERE
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -37,12 +36,11 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="about-details-cap">
-                        <h2 class="post-title">{{ post.title }}</h2>
+                        <h2 class="post-title title-color">{{ post.title }}</h2>
                         <p class="post-subtitle">{{ post.author }} | {{ post.created_on }} </p>
                     </div>
                 </div>
                 <div class="col-lg-10">
-                    Text paragraph goes here
                     <div class="about-details-cap">
                         <p class="mb-30">{{ post.content | safe }}</p>
                     </div>
@@ -54,7 +52,7 @@
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="fae fa-comments"></i> {{ total_comments }} </strong>
+                        <strong class="text-secondary"><i class="fa-solid fa-comment"></i> {{ total_comments }} </strong>
                         {% endwith %}
                     </div>
                 </div>
@@ -62,7 +60,12 @@
 
                 <!-- Social -->
                 <div class="social-icon pt-20 pb-20">
-                    Icons goes here
+                    <a href="#" target="_blank">
+                        <img class="mr-10 mb-10" src="/static/images/facebook.png" alt="Facebook sharing link">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img class="mr-10 mb-10" src="/static/images/twitter.png" alt="Twitter sharing link">
+                    </a>
                 </div>
             </div>
             <!-- Post's Text End -->

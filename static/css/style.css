@@ -11,6 +11,11 @@ a {
     padding: 10px 19px;
 }
 
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
 /* Navigation bar */
 
 .f-left {
@@ -74,6 +79,26 @@ a {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+}
+
+/* Post Detail */
+
+.page-notification {
+    background: #f9f5f5;
+    padding: 13px 0;
+    margin-bottom: 45px;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Color Palette */
+
+.title-color {
+    color: #5b486d;
 }
 
 /* Footer */

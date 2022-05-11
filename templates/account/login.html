@@ -6,32 +6,46 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-
-
-
-      <h3>{% trans "Sign In" %}</h3>
-
-      <p>{% blocktrans %}Welcome back to The Note magazine. To leave a comment or like a post, please log in. If you
-        have note created an account yet, then <a href="{{ signup_url }}">sign up</a>{% endblocktrans %}</p>
-
+<!-- Login Area Start -->
+<div class="container login-form col-xl-7 col-lg-8">
+  <!-- Login Heading Start -->
+  <div class="row justify-content-center">
+    <div class="">
+      <h3 class="text-center">{% trans "Login" %}</h3>
+      <p class="text-center">{% blocktrans %}Enter Login details to get access{% endblocktrans %}</p>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-
+  <!-- Login Heading End -->
+  <!-- Login Input Fields Start -->
+  <div class="row justify-content-center">
+    <div class="col-xl-7 col-lg-8">
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="input-box">
+          <div class="single-input-field">
+            <label for="id_login">Username</label>
+            <input type="text" name="login" placeholder="Username" autocomplete="username" maxlength="150" required
+              id="id_login">
+          </div>
+          <div class="single-input-field">
+            <label for="id_password">Password</label>
+            <input type="password" name="password" placeholder="Password" autocomplete="current-password" required
+              id="id_password">
+          </div>
+          <div class="single-input-field login-check">
+            <input type="checkbox" name="remember" id="id_remember">
+            <label for="remember">Remember me</label>
+            <a class="f-right" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+          </div>
+        </div>
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+        <!-- Form Footer -->
+        <div class="login-footer">
+          <p>Don't have an account?<a href="{{ signup_url }}">Sign Up</a>here</p>
+          <button class="primaryAction" type="submit">{% trans "Login" %}</button>
+        </div>
       </form>
     </div>
   </div>

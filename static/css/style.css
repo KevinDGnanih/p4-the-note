@@ -163,6 +163,11 @@ input[type=radio] {
     padding: 0;
 }
 
+.login-form .input-box {
+    padding-top: 35px;
+    padding-bottom: 75px;
+}
+
 .login-check input[type="checkbox"]+label::before {
     content: "\2714";
     border: 0.1em solid #e4e4e4;
@@ -194,3 +199,19 @@ label {
     justify-content: space-between;
     align-items: center;
 }
+
+.remember {
+    padding: 0;
+}
+
+.submit-btn {
+    background: #f9f5f5;
+    height: 50px;
+    padding: 10px 43px;
+    border: 0;
+    text-transform: capitalize;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 0px;
+}
+

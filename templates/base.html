@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <!-- Header Start -->
     <header>
@@ -33,7 +33,7 @@
                                     <li class="d-none d-lg-block">
                                         <div class="form-box f-left">
                                             <input type="text" name="Search" placeholder="Search your intrest...">
-                                                <!--<i class="fa-solid fa-magnifying-glass position-relative"></i>-->
+                                            <!--<i class="fa-solid fa-magnifying-glass position-relative"></i>-->
                                         </div>
                                     </li>
                                 </div>
@@ -41,7 +41,7 @@
                                     <!-- Logo -->
                                     <div class="logo">
                                         <a href="#">
-                                        <img src="/static/images/the-note-logo.jpg" width="100" height="100" alt="">
+                                            <img src="/static/images/the-note-logo.jpg" width="100" height="100" alt="">
                                         </a>
                                         <p>The Note</p>
                                     </div>
@@ -103,6 +103,19 @@
         </div>
         <!-- Header End -->
     </header>
+    <!-- Breadcrumb Start -->
+    <div class="page-notification">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb justify-content-center">
+                        Breadcrumb info goes here
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
 
     <main>
         {% block content %}
@@ -111,7 +124,7 @@
         {% endblock content %}
     </main>
 
-    <footer>
+    <footer class="mt-auto">
         <!-- Footer Start -->
         <div class="footer-bottom-area">
             <div class="container">

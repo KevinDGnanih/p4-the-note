@@ -35,7 +35,7 @@
           <div class="single-input-field login-check">
             <input type="checkbox" name="remember" id="id_remember">
             <label for="remember">Remember me</label>
-            <a class="f-right" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+            <a class="f-right remember" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
           </div>
         </div>
         {% if redirect_field_value %}
@@ -43,8 +43,8 @@
         {% endif %}
         <!-- Form Footer -->
         <div class="login-footer">
-          <p>Don't have an account?<a href="{{ signup_url }}">Sign Up</a>here</p>
-          <button class="primaryAction" type="submit">{% trans "Login" %}</button>
+          <p>Don't have an account? <a class="remember" href="{{ signup_url }}">Sign Up</a> here</p>
+          <button class="submit-btn" type="submit">{% trans "Login" %}</button>
         </div>
       </form>
     </div>

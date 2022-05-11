@@ -48,16 +48,19 @@
                                 </div>
                                 <div class="col header-info-right d-flex align-items-center text-center">
                                     <ul>
+                                        <li>
+                                            <a href="{% url 'home' %}">Home</a>
+                                        </li>
                                         {% if user.is_authenticated %}
                                         <li>
-                                            <a href="#">Logout</a>
+                                            <a href="{% url 'account_logout' %}">Logout</a>
                                         </li>
                                         {% else %}
                                         <li class="d-inline-block">
-                                            <a href="#">Sign Up</a>
+                                            <a href="{% url 'account_signup' %}">Sign Up</a>
                                         </li>
                                         <li class="d-inline-block">
-                                            <a href="#">Log In</a>
+                                            <a href="{% url 'account_login' %}">Login</a>
                                         </li>
                                         {% endif %}
                                     </ul>

@@ -31,8 +31,6 @@ img {
     padding: 29px 170px;
 }
 
-.header-area .header-top .header-info-left .form-box {}
-
 .header-area .header-top .header-info-left .form-box .search-icon {
     position: absolute;
     display: inline-block;
@@ -267,4 +265,58 @@ label {
     cursor: pointer;
     font-size: 16px;
     border-radius: 0px;
+}
+
+
+/* AllAuth forms */
+
+label {
+    margin: 0;
+    display: block;
+    font-size: 17px;
+    margin-bottom: 6px;
+    color: #140C40;
+    text-transform: capitalize;
+    font-weight: 500;
+    text-align: left;
+}
+
+input {
+    padding-top: 35px;
+    padding-bottom: 60px;
+    border: 1px solid #C9C9C9;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 0 25px;
+    color: #000;
+}
+
+#id_remember {
+    display: none;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    overflow: hidden;
+}
+
+#id_remember input {
+    content: "\2714";
+    border: 0.1em solid #e4e4e4;
+    border-radius: 0.2em;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    margin-right: 10px;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+}
+
+#id_remember a {
+    color: #0074E8;
+    font-size: 15px;
+    font-weight: 400;
 }

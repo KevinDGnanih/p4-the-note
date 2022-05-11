@@ -21,26 +21,7 @@
         <div class="input-box">
           <div class="row justify-content-center">
             <div class="col-xl-8 col-lg-8">
-              <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-                {% csrf_token %}
-                <div class="single-input-field">
-                  <label for="id_username">Username</label>
-                  <input type="text" placeholder="Enter a username" name="username" id="id_username" maxlength="150"
-                    required>
-                </div>
-                <div class="single-input-field">
-                  <label for="id_email">Email (optional)</label>
-                  <input type="email" placeholder="Enter an email address" name="email" id="email">
-                </div>
-                <div class="single-input-field">
-                  <label for="id_password">Password</label>
-                  <input type="password" placeholder="Enter a password" name="password" id="id_password" required>
-                </div>
-                <div class="single-input-field">
-                  <label for="id_confirm_password">Password (again)</label>
-                  <input type="password" placeholder="Enter your password (again)" name="confirm-password"
-                    id="id_confirm_password" required>
-                </div>
+              {{ form.as_p }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}

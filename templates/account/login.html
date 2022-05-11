@@ -21,34 +21,24 @@
     <div class="col-xl-7 col-lg-8">
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
-        <div class="input-box">
-          <div class="single-input-field">
-            <label for="id_login">Username</label>
-            <input type="text" name="login" placeholder="Username" autocomplete="username" maxlength="150" required
-              id="id_login">
-          </div>
-          <div class="single-input-field">
-            <label for="id_password">Password</label>
-            <input type="password" name="password" placeholder="Password" autocomplete="current-password" required
-              id="id_password">
-          </div>
-          <div class="single-input-field login-check">
-            <input type="checkbox" name="remember" id="id_remember">
-            <label for="remember">Remember me</label>
-            <a class="f-right remember" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-          </div>
+        {{form.as_p}}
+        <div class="single-input-field login-check">
+          <input type="checkbox" name="remember" id="id_remember">
+          <label for="remember">Remember me</label>
+          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
         </div>
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <!-- Form Footer -->
-        <div class="login-footer">
-          <p>Don't have an account? <a class="remember" href="{{ signup_url }}">Sign Up</a> here</p>
-          <button class="submit-btn" type="submit">{% trans "Login" %}</button>
-        </div>
-      </form>
     </div>
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <!-- Form Footer -->
+    <div class="login-footer">
+      <p>Don't have an account? <a class="remember" href="{{ signup_url }}">Sign Up</a> here</p>
+      <button class="submit-btn" type="submit">{% trans "Login" %}</button>
+    </div>
+    </form>
   </div>
+</div>
 </div>
 
 {% endblock %}

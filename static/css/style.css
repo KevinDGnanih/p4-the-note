@@ -320,3 +320,11 @@ input {
     font-size: 15px;
     font-weight: 400;
 }
+
+
+#id_remember p, .forget_pass {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    overflow: hidden;
+}

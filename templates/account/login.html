@@ -22,11 +22,7 @@
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{form.as_p}}
-        <div class="single-input-field login-check">
-          <input type="checkbox" name="remember" id="id_remember">
-          <label for="remember">Remember me</label>
-          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        </div>
+        <a class="button secondaryAction forget_pass" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
     </div>
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />

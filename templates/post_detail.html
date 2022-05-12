@@ -49,7 +49,7 @@
                                 {% else %}
 
                                 <button type="submit" name="magpost_id" value="{{ post.slug }}" class="btn-like"><i
-                                    class="far fa-heart"></i></button>
+                                        class="far fa-heart"></i></button>
 
                                 {% endif %}
 
@@ -68,10 +68,8 @@
                         {% endwith %}
                     </div>
                 </div>
-
-
                 <!-- Social -->
-                <div class="social-icon pt-20 pb-20">
+                <div class="social-icon p-0">
                     <a href="#" target="_blank">
                         <img class="mr-10 mb-10" src="/static/images/facebook.png" alt="Facebook sharing link">
                     </a>
@@ -83,7 +81,7 @@
             <!-- Post's Text End -->
             <!-- Comments Section Start -->
             <div class="comments-area pb-80">
-                <div class="container">
+                <div class="container p-0">
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="small-tittle mb-30">
@@ -92,24 +90,24 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-11">
-                            Comments goes here
+                        <div class="col-lg-5">
                             {% for comment in comments %}
                             <div class="comments" style="padding: 10px;">
-                                <p class="font-weight-bold">
+                                <p class="font-weight-bold capital">
                                     {{ comment.name }}
-                                    <span class="text-muted font-weight-normal">
-                                        {{ comment.created_on }}
-                                    </span> wrote:
+                                    <span class="author no-bold">Author</span>
                                 </p>
+                                <span class="text-muted time-comment">
+                                    {{ comment.created_on }}
+                                </span>
                                 {{ comment.body | linebreaks }}
                             </div>
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="col-md-4 card mb-4  mt-3 ">
-                        <div class="card-body">
-                            <!-- For later -->
+                    <div class="col-lg-12 card mb-4  mt-3 ">
+                        <div class="card-body comment-box">
+
                             {% if commented %}
                             <div class="alert alert-success" role="alert">
                                 Your comment is awaiting approval
@@ -118,12 +116,12 @@
 
                             {% if user.is_authenticated %}
 
-                            <h3>Leave a comment:</h3>
-                            <p>Posting as: {{ user.username }}</p>
+                            <h3>Drop your comment:</h3>
+                            <p class="text-muted">Posting as: {{ user.username }}</p>
                             <form method="post" style="margin-top: 1.3em;">
                                 {{ comment_form | crispy }}
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                                <button type="submit" class="submit-btn-comment">Submit</button>
                             </form>
                             {% endif %}
                             {% endif %}

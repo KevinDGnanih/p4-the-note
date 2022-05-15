@@ -9,6 +9,13 @@ ul {
 
 a {
     padding: 10px 19px;
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #000;
 }
 
 img {
@@ -27,8 +34,11 @@ img {
 }
 
 /* Header Top */
+
+
+
 .header-area .header-top {
-    padding: 29px 170px;
+    padding: 29px 80px;
 }
 
 .header-area .header-top .header-info-left .form-box .search-icon {
@@ -66,12 +76,27 @@ img {
     position: relative;
 }
 
+.hover-card-img {
+    transition: all 0.3s ease-out 0s;
+}
+
+.hover-card-img:hover {
+    transform: scale(1.01);
+}
+
+.shad {
+    transition: all 0.3s ease-out 0s;
+}
+
+.shad:hover {
+    box-shadow: 5px 5px 15px rgb(235, 235, 235);
+}
 .section-tittle::before {
     position: absolute;
     content: "";
-    height: 1px;
+    height: 3px;
     width: 77%;
-    background: #C7D2D8;
+    background: #2D2362;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
@@ -96,6 +121,9 @@ img {
 .card {
     border: none;
     background-color: transparent;
+}
+
+.card-img-top {
 }
 
 /* Color Palette */
@@ -171,21 +199,6 @@ input[type=radio] {
 .login-form .input-box {
     padding-top: 35px;
     padding-bottom: 75px;
-}
-
-.login-check input[type="checkbox"]+label::before {
-    content: "\2714";
-    border: 0.1em solid #e4e4e4;
-    border-radius: 0.2em;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    padding-left: 0.2em;
-    padding-bottom: 0.3em;
-    margin-right: 10px;
-    vertical-align: bottom;
-    color: transparent;
-    transition: .2s;
 }
 
 .login-check a {
@@ -307,8 +320,7 @@ input {
     overflow: hidden;
 }
 
-#id_remember input {
-    content: "\2714";
+#id_remember {
     border: 0.1em solid #e4e4e4;
     border-radius: 0.2em;
     display: inline-block;
@@ -329,12 +341,15 @@ input {
 }
 
 
-#id_remember p, .forget_pass {
-    display: flex;
+.forget_pass {
+
     justify-content: space-between;
     padding-top: 8px;
     overflow: hidden;
+    float: right;
 }
+
+
 
 /* Comments Section */
 

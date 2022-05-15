@@ -22,13 +22,13 @@
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{form.as_p}}
-        <a class="button secondaryAction forget_pass" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+        <a class="button secondaryAction forget_pass " href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
     </div>
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
     <!-- Form Footer -->
-    <div class="login-footer">
+    <div class="login-footer col-lg-8">
       <p>Don't have an account? <a class="remember" href="{{ signup_url }}">Sign Up</a> here</p>
       <button class="submit-btn" type="submit">{% trans "Login" %}</button>
     </div>

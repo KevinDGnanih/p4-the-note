@@ -29,7 +29,7 @@
                     <div class="container-fluid">
                         <div class="col-xl-12">
                             <div class="row d-flex justify-content-lg-between align-items-center">
-                                <div class="col header-info-left align-items-center">
+                                <div class="col header-info-left">
                                     <li class="d-none d-lg-block">
                                         <div class="form-box f-left">
                                             <input type="text" name="Search" placeholder="Search your intrest...">
@@ -40,19 +40,19 @@
                                 <div class="col header-info-mid text-center">
                                     <!-- Logo -->
                                     <div class="logo">
-                                        <a href="#">
+                                        <a href="{% url 'home' %}">
                                             <img src="/static/images/the-note-logo.jpg" width="100" height="100" alt="">
                                         </a>
                                         <p>The Note</p>
                                     </div>
                                 </div>
-                                <div class="col header-info-right d-flex align-items-center text-center">
+                                <div class="col header-info-right d-flex align-items-center">
                                     <ul>
-                                        <li>
+                                        <li class="d-inline-block">
                                             <a href="{% url 'home' %}">Home</a>
                                         </li>
                                         {% if user.is_authenticated %}
-                                        <li>
+                                        <li class="d-inline-block">
                                             <a href="{% url 'account_logout' %}">Logout</a>
                                         </li>
                                         {% else %}

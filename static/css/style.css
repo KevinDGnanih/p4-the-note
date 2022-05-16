@@ -23,6 +23,11 @@ img {
     border-style: none;
 }
 
+/* Icons */
+.fa-heart {
+    color: pink;
+}
+
 /* Navigation bar */
 
 .f-left {

@@ -6,7 +6,7 @@
 <div class="latest-posts pt-80 pb-80">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-8 mx-auto">
                 <div class="section-tittle mb-35">
                     <h2 class="">LATEST POSTS</h2>
                 </div>
@@ -14,11 +14,11 @@
         </div>
 
 
-        <div class="col-12 mt-3 left">
+        <div class="col-8 mt-3 mx-auto">
             <div class="row">
                 {% for post in post_list %}
                 <div class="shad col-md-4 w-80">
-                    <div class="card ">
+                    <div class="card">
                         <div class="card-body justify-content-center">
                             <div class="col image-container">
                                 {% if "placeholder" in post.featured_image.url %}
@@ -51,15 +51,13 @@
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
             </div>
-
-
-
         </div>
-
     </div>
-    <div class="row">
-        {% endif %}
-        {% endfor %}
+    <div class="col-8 mt-3 mx-auto">
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
     </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">

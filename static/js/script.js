@@ -1,20 +1,20 @@
+const likes = document.getElementById('likedata');
 
-const heartBtn = document.getElementByClassName("btn-like");
+document.getElementById("likedata").addEventListener("submit", (e) => {
+    e.preventDefault();
 
-function likeBtn() {
-    fetch('BASE_URL', {
-        
+    fetch("{% url 'post_like' post.slug %}", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(heartBtn),
-        })
-        .then(response => response.json())
-        .then(heartBtn => {
-            console.log('Success:', heartBtn);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-}
+        body: JSON.stringify(likes),
+    })
+    .then(response => response.json())
+    .then(likes => {
+        console.log('Success:', likes);
+    })
+    .catch(error => {
+        console.error('Error:', error)
+    });
+})

@@ -37,18 +37,18 @@
 
                 <div class="row">
                     <div class="col-1">
-                        <strong>
+                        <strong class="like-check">
                             {% if user.is_authenticated %}
-                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST" id="likedata">
                                 {% csrf_token %}
                                 {% if liked %}
 
-                                <button onclick="likeBtn()" type="submit" name="magpost_id" value="{{ post.slug }}" class="btn-like"><i
+                                <button type="submit" name="magpost_id" value="{{ post.slug }}" class="btn-like"><i
                                         class="fas fa-heart"></i></button>
 
                                 {% else %}
 
-                                <button onclick="likeBtn()" type="submit" name="magpost_id" value="{{ post.slug }}" class="btn-like"><i
+                                <button type="submit" name="magpost_id" value="{{ post.slug }}" class="btn-like"><i
                                         class="far fa-heart"></i></button>
 
                                 {% endif %}
@@ -132,7 +132,6 @@
             <!-- Comments Section End -->
         </div>
     </div>
-
 
 </main>
 

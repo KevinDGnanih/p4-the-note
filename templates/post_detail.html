@@ -43,12 +43,12 @@
                                 {% csrf_token %}
                                 {% if liked %}
 
-                                <button type="submit" name="magpost_id" value="{{ post.slug }}" class="btn-like"><i
+                                <button onclick="likeBtn()" type="submit" name="magpost_id" value="{{ post.slug }}" class="btn-like"><i
                                         class="fas fa-heart"></i></button>
 
                                 {% else %}
 
-                                <button type="submit" name="magpost_id" value="{{ post.slug }}" class="btn-like"><i
+                                <button onclick="likeBtn()" type="submit" name="magpost_id" value="{{ post.slug }}" class="btn-like"><i
                                         class="far fa-heart"></i></button>
 
                                 {% endif %}

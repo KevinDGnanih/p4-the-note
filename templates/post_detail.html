@@ -133,6 +133,34 @@
         </div>
     </div>
 
+    <script>
+        document.getElementById("likedata").addEventListener("submit",
+            function (e) {
+                e.preventDefault();
+
+                liked = document.getElementsByClassName('fas');
+                notLiked = document.getElementsByClassName('far');
+
+                const formData = new FormData;
+                console.log(liked);
+
+                formData.append('liked', liked);
+                formData.append('notLiked', notLiked);
+                console.log(formData);
+                fetch('{% url "post_like" post.slug %}', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Success:', data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+    </script>
+
 </main>
 
 {% endblock content %}

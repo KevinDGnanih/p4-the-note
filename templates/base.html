@@ -16,7 +16,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+
 
 </head>
 
@@ -56,9 +56,11 @@
                                         <li class="d-inline-block">
                                             <a href="{% url 'account_logout' %}">Logout</a>
                                         </li>
+                                        {% if user.is_superuser %}
                                         <li class="d-inline-block">
                                             <a href="{% url 'add_post' %}">Add Post</a>
                                         </li>
+                                        {% endif %}
                                         {% else %}
                                         <li class="d-inline-block">
                                             <a href="{% url 'account_signup' %}">Sign Up</a>
@@ -149,7 +151,7 @@
         <!-- Footer End -->
     </footer>
     <script>
-        setTimeout(function() {
+        setTimeout(function () {
             let messages = document.getElementById('msg');
             let alert = new bootstrap.Alert(messages);
             alert.close();

@@ -1,6 +1,7 @@
 """ Model for The Note Magazine home page """
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from mptt.models import MPTTModel, TreeForeignKey
 from cloudinary.models import CloudinaryField
 
@@ -31,6 +32,9 @@ class Post(models.Model):
     def number_of_likes(self):
         """ Returns the total number of likes on a post """
         return self.likes.count()
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 
 class Comment(models.Model):

@@ -1,7 +1,7 @@
 """ View file """
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
@@ -90,4 +90,11 @@ class PostLike(View):
 class AddPost(CreateView):
     model = Post
     template_name = 'add_post.html'
-    fields = '__all__'
+    fields = ('title', 'slug', 'content', 'featured_image', 'status')
+
+
+
+class EditPost(UpdateView):
+    model = Post
+    template_name = 'edit_post.html'
+    fields = ('title', 'slug', 'content', 'featured_image', 'status')

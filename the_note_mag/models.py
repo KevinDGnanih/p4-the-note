@@ -6,12 +6,14 @@ from mptt.models import MPTTModel, TreeForeignKey
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
+CATEGORY = [('Music', 'Music'), ('Live', 'Live'), ('Review', 'Review'), ('Playlist', 'Playlist') ]
 
 
 class Post(models.Model):
     """ Class for the post """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
+    category = models.CharField(max_length=50, choices=CATEGORY, default='Music')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='mag_posts')
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -24,6 +26,8 @@ class Post(models.Model):
     class Meta:
         """ Adding methods for a better readability and user experience """
         ordering = ['-created_on']
+
+
 
     def __str__(self):
         """ The string method to make it easier to read """
@@ -38,6 +42,16 @@ class Post(models.Model):
 
     def get_success_url(self):
         return reverse_lazy('home')
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name 
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 
 class Comment(models.Model):

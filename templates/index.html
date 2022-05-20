@@ -48,6 +48,7 @@
                                 
                                 {% if user.is_superuser %}
                                 <a href="{% url 'edit_post' post.slug %}">Edit</a>
+                                <a href="{% url 'delete_post' post.slug %}">Delete</a>
                                 {% endif %}
                             </div>
                         </div>

@@ -27,6 +27,10 @@
                     <div class="about-details-cap">
                         <h2 class="post-title title-color">{{ post.title }}</h2>
                         <p class="post-subtitle">{{ post.author }} | {{ post.created_on }} </p>
+                        {% if user.is_superuser %}
+                        <a href="{% url 'edit_post' post.slug %}">Edit</a>
+                        <a href="{% url 'delete_post' post.slug %}">Delete</a>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-lg-10">

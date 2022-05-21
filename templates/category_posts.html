@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Latest Post Area -->
+<div class="latest-posts pt-80 pb-80">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <div class="section-tittle mb-35">
+                    <h2 class="">Category</h2>
+                </div>
+            </div>
+        </div>
+
+        {{ cats }}
+
+        <div class="col-8 mt-3 mx-auto">
+            <div class="row">
+                {% for post in post_list %}
+                <div class="shad col-md-4 w-80">
+                    <div class="card">
+                        <div class="card-body justify-content-center">
+                            <div class="col image-container">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <a href="{% url 'post_detail' post.slug %}">
+                                    <img class="card-img-top hover-card-img"
+                                        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'post_detail' post.slug %}">
+                                    <img class="card-img-top hover-card-img"
+                                        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                </a>
+                                {% endif %}
+                            </div>
+                            <div class="info-card">
+                                <a href="{% url 'post_detail' post.slug %}"
+                                    class="post-link align-items-center text-center">
+                                    <h5 class="card-title">{{ post.title }}</h5>
+                                    <p class="card-text">{{ post.excerpt }}</p>
+                                    <p class="card-text">{{ post.category }}</p>
+                                </a>
+                                <div class="">
+                                    <p class="author">Author: {{ post.author }}</p>
+                                </div>
+                                <hr>
+                                <p class="card-text h6">{{ post.created_on }} <i class="far fa-heart"></i>
+                                    {{ post.number_of_likes }}</p>
+                                
+                                {% if user.is_superuser %}
+                                <a href="{% url 'edit_post' post.slug %}">Edit</a>
+                                <a href="{% url 'delete_post' post.slug %}">Delete</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+        </div>
+    </div>
+    <div class="col-8 mt-3 mx-auto">
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}"> NEXT &raquo</a></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+<!-- Latest Posts Area End -->
+{% endblock %}

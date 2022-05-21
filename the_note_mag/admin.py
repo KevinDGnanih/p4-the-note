@@ -8,8 +8,8 @@ class PostAdmin(SummernoteModelAdmin):
     """ Structure the admin Post field with summernote and django """
 
     prepopulated_fields = {'slug': ('title',)}
-    list_filter = ('status', 'created_on')
-    list_display = ('title', 'slug', 'status', 'created_on')
+    list_filter = ('category', 'status', 'created_on')
+    list_display = ('title', 'slug', 'category', 'status', 'created_on')
     search_fields = ['title', 'content']
     summernote_fields = ('content')
 
@@ -27,9 +27,8 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
-# admin.site.register(Category)
+#admin.site.register(Category)
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('category', 'title')
-
+#@admin.register(Category)
+#class CategoryAdmin(admin.ModelAdmin):
+#    list_display = ('name', 'post')

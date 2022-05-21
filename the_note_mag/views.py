@@ -15,6 +15,14 @@ class PostList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 6
 
+    
+class CategoryPosts(generic.ListView):
+    def get(request, cats):
+        return render(
+            request,
+            'category_posts.html', {'cats':cats}
+        )
+
 
 class PostDetail(View):
     """ Structure the rendering of the post detail """
@@ -107,3 +115,6 @@ class DeletePost(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+
+#class CategoryPosts(View)

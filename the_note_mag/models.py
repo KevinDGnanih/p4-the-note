@@ -43,15 +43,18 @@ class Post(models.Model):
     def get_success_url(self):
         return reverse_lazy('home')
 
+    
 
 class Category(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, choices=CATEGORY, default='Music')
     
+        
     def __str__(self):
-        return self.name 
+        return self.name
 
     def get_absolute_url(self):
         return reverse('home')
+
 
 
 class Comment(models.Model):

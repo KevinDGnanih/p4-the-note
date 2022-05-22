@@ -2,12 +2,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse, reverse_lazy
-from mptt.models import MPTTModel, TreeForeignKey
+#from mptt.models import MPTTModel, TreeForeignKey
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 CATEGORY = [('Music', 'Music'), ('Live', 'Live'), ('Review', 'Review'), ('Playlist', 'Playlist') ]
-
+#CATEGORY = Category.objects.all().values_list('name', 'name')
 
 class Post(models.Model):
     """ Class for the post """
@@ -43,11 +43,14 @@ class Post(models.Model):
     def get_success_url(self):
         return reverse_lazy('home')
 
-    
 
 class Category(models.Model):
     name = models.CharField(max_length=50, choices=CATEGORY, default='Music')
+    posts = Post
     
+    class Meta:
+        """ Specify the plural of Category """
+        verbose_name_plural = 'Categories'
         
     def __str__(self):
         return self.name

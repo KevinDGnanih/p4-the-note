@@ -8,16 +8,15 @@
         <div class="row">
             <div class="col-8 mx-auto">
                 <div class="section-tittle mb-35">
-                    <h2 class="">Category</h2>
+                    <h2 class="">{{ cats }}</h2>
                 </div>
             </div>
         </div>
 
-        {{ cats }}
 
         <div class="col-8 mt-3 mx-auto">
             <div class="row">
-                {% for post in post_list %}
+                {% for post in category_posts %}
                 <div class="shad col-md-4 w-80">
                     <div class="card">
                         <div class="card-body justify-content-center">

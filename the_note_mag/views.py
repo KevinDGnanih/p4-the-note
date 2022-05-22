@@ -17,10 +17,12 @@ class PostList(generic.ListView):
 
     
 class CategoryPosts(generic.ListView):
-    def get(request, cats):
+    """ Cats """
+    def get(self, request, cats):
+        category_posts = Post.objects.filter(category=cats)
         return render(
             request,
-            'category_posts.html', {'cats':cats}
+            'category_posts.html', {'cats': cats, 'category-post': category_posts}
         )
 
 
@@ -103,7 +105,6 @@ class AddPost(CreateView):
 
 
 
-
 class EditPost(UpdateView):
     model = Post
     template_name = 'edit_post.html'
@@ -115,6 +116,3 @@ class DeletePost(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
-
-
-#class CategoryPosts(View)

@@ -46,7 +46,7 @@ class Post(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=50, choices=CATEGORY, default='Music')
-    posts = Post
+    
     
     class Meta:
         """ Specify the plural of Category """

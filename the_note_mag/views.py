@@ -4,7 +4,7 @@ from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, CATEGORY
 from .forms import CommentForm
 
 
@@ -18,6 +18,7 @@ class PostList(generic.ListView):
     
 class CategoryPosts(generic.ListView):
     """ Cats """
+    model = Post
     def get(self, request, cats):
         category_posts = Post.objects.filter(category=cats)
         return render(
